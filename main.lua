@@ -39,17 +39,6 @@ end
 
 for Index, Value in ipairs(PossibleGunData) do
     print(Dump(Value))
-    
-    local Value = setmetatable(Value, {
-        __index = function(self, Index)
-            if Index == "tracerColor" then
-                return GetTickColor()
-            end
-            
-            return rawget(self, Index)
-        end
-    })
-    
     rawset(Value, "drag", 0)
     rawset(Value, "bulletCount", 99)
     rawset(Value, "segmentedReload", 0)
